@@ -4,15 +4,22 @@ import Pokemons from './Copmponents/Pokemons';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const getData = () => {
       fetch('https://pokeapi.co/api/v2/pokemon ')
         .then((res) => res.json())
-        .then((data) => {
-          setPokemons(data.results);
-          console.log('data', data);
-        });
+        .then(
+          (data) => {
+            setPokemons(data.results);
+            console.log('data', data);
+          },
+          (error) => {
+            setError(error.message);
+            console.log(error);
+          }
+        );
     };
     getData();
   }, []);
@@ -21,6 +28,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
+        {error ? error : 'no errors'}
         <Pokemons pokemons={pokemons} />
       </header>
     </div>

@@ -4,21 +4,17 @@ function Pokemon({ name, url }) {
   return (
     <>
       <div className='kvc'>
-        <p
+        <h2
           style={{
-            fontSize: '35px',
-            fontWeight: 'bold',
             color: randColor(),
             textAlign: 'left',
             margin: '0',
+            textTransform: 'capitalize',
           }}
         >
           {name}:{' '}
-        </p>
-        <i>
-          {' '}
-          <p style={{ textDecoration: 'underline', margin: '10px' }}>{url}</p>
-        </i>
+        </h2>
+        <a href={url}>{url}</a>
       </div>
     </>
   );
