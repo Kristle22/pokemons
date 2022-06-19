@@ -3,7 +3,7 @@ import randColor from '../FUNCTIONS/randColor';
 function Pokemon({ name, url }) {
   return (
     <>
-      <div className='kvc'>
+      <div className='kvc' style={{ margin: '10px' }}>
         <h2
           style={{
             color: randColor(),
